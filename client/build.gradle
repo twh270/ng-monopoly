@@ -1,0 +1,20 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-grunt-plugin:+'
+        classpath 'com.moowork.gradle:gradle-node-plugin:+'
+    }
+}
+
+apply plugin: 'com.moowork.grunt'
+apply plugin: 'com.moowork.node'
+
+defaultTasks 'build'
+
+task build() {
+    println 'Building client project...'
+}
+

@@ -1,4 +1,5 @@
 rootProject.name = 'ngMonopoly'
 
 include 'server'
+include 'client'
 
