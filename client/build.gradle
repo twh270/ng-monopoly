@@ -14,7 +14,21 @@ apply plugin: 'com.moowork.node'
 
 defaultTasks 'build'
 
-task build() {
+node {
+    version = '4.4.0'
+    download = false
+}
+
+grunt_build.dependsOn 'installGrunt'
+grunt_build.dependsOn 'npmInstall'
+
+task build {
     println 'Building client project...'
+}
+
+build.dependsOn grunt_build
+
+task startServer(dependsOn: ['grunt_hapi'] ) {
+    println 'Starting server'
 }
 
