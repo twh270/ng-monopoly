@@ -7,7 +7,8 @@
         "grunt-hapi" : ">=0.12.0",
         "grunt-cli": ">=0.1.13",
         "inert": ">=3.x.x",
-        "load-grunt-tasks" : ">=3.2.0"
+        "load-grunt-tasks" : ">=3.2.0",
+        "grunt-contrib-watch" : ">=1.0.0"
     },
     "private": "true"
 }

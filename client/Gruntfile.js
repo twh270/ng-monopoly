@@ -9,13 +9,30 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    watch: {
+      hapi: {
+        files: ['app/*.js'],
+        tasks: ['hapi'],
+        options: {
+          spawn: false // Newer versions of grunt-contrib-watch might require this parameter.
+        }
+      }
+    },
     hapi: {
-      options: {
-          server: path.resolve('./app/server')
+      server_options: {
+        options: {
+          server: path.resolve('./app/server'),
+          create_options: { port: 3001 },
+          bases: {
+            '/': path.resolve('./')
+          },
+          noasync: true
+        }
       }
     }
   });
 
-  grunt.loadTasks('tasks');
   grunt.loadNpmTasks('grunt-hapi');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.registerTask('server', ['hapi', 'watch']);
 };
