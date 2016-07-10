@@ -26,7 +26,7 @@ module.exports = function(grunt) {
           bases: {
             '/': path.resolve('./')
           },
-          noasync: true
+          noasync: false
         }
       }
     }
